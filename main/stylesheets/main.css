@@ -1,0 +1,42 @@
+h2, h1 {
+  color: black;
+  font-family: "Lobster", cursive;
+}
+
+footer, body {
+  color: black;
+  font-family: "Staatliches", cursive;
+}
+
+body {
+  font-size: 16px;
+  background-image: url(../assets/background_img.png);
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+footer {
+  position: absolute;
+  left: 36px;
+  bottom: 36px;
+}
+
+a:link {
+  color: royalblue;
+}
+
+a:visited {
+  color: royalblue;
+}
+
+a:hover {
+  color: palevioletred;
+}
+
+/*# sourceMappingURL=main.css.map */

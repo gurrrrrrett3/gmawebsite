@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../assets/favicon.ico" rel="shortcut icon" type="image/x-icon"> 
+    <title>GMA Map Viewer | Elnakka
+    </title>
+    <link rel="stylesheet" href="/stylesheets/maps.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="sidenav">
+        <elnakka-text>ELNAKKA</elnakka-text>
+        <br>
+        <country>Finland</country>
+        <br>
+        <sidebar>
+            SKI PASSES: 60 <br>
+            DOUBLE DIAMONDS: 9 <br>
+            LIFTS: 4 <br>
+        </sidebar>
+
+        <sidebar-footer>
+          <a href="../home.html">Home</a>
+        </sidebar-footer>
+
+
+      </div>
+
+      <div class="main">
+        <div class="map" id="map">
+          <img src="../assets/elnakka/Elnakka/Elnakka_Background.png">
+        <div class="layers">
+          <img src="../assets/elnakka/Elnakka/Elnakka_Races.png" id="tt">
+          <img src="../assets/elnakka/Elnakka/Elnakka_TC.png" id="tc">
+          <img src="../assets/elnakka/Elnakka/Elnakka_Trials.png" id="tra">
+        </div>
+      <div class="controls"> 
+        TOGGLES
+        <br>
+        <button onclick="toggleVis('exp')">Exploration Passes</button>
+        <br>
+        <button onclick="toggleVis('tt')">Time Trials</button>
+        <br>
+        <button onclick="toggleVis('stg')">Ski to Goal Endings</button>
+        <br>
+        <button onclick="toggleVis('tc')">Trick Challenges</button>
+        <br>
+        <button onclick="toggleVis('tra')">Trails</button>
+        <br>
+        <button onclick="toggleVis('lvl')">Unlock Levels</button>
+        <br>
+        <br>
+        <button onclick="zoomIn()">Zoom In</button>
+        <br>
+        <button onclick="zoomOut()">Zoom Out</button>
+        <br>
+        Zoom Level <var id="zoom">50%</var>
+      </div> 
+      </div>
+</body>
+
+<script src="../assets/js/maps.js"></script>
+</html>
