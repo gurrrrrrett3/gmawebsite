@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../assets/favicon.ico" rel="shortcut icon" type="image/x-icon"> 
     <title>GMA Map Viewer | Elnakka
     </title>
     <link rel="stylesheet" href="/stylesheets/maps.css">
@@ -24,21 +23,16 @@
             LIFTS: 4 <br>
         </sidebar>
 
-        <sidebar-footer>
-          <a href="../home.html">Home</a>
-        </sidebar-footer>
-
-
       </div>
 
       <div class="main">
         <div class="map" id="map">
           <img src="../assets/elnakka/Elnakka/Elnakka_Background.png">
-        <div class="layers">
+        <!--<div class="layers">-->
           <img src="../assets/elnakka/Elnakka/Elnakka_Races.png" id="tt">
           <img src="../assets/elnakka/Elnakka/Elnakka_TC.png" id="tc">
           <img src="../assets/elnakka/Elnakka/Elnakka_Trials.png" id="tra">
-        </div>
+        <!--</div>-->
       <div class="controls"> 
         TOGGLES
         <br>
@@ -59,10 +53,11 @@
         <br>
         <button onclick="zoomOut()">Zoom Out</button>
         <br>
-        Zoom Level <var id="zoom">50%</var>
+        Zoom Level <var id="zoom">100%</var>
       </div> 
       </div>
 </body>
 
+<script src="../assets/js/jquery.3.6.0.min.js"></script>
 <script src="../assets/js/maps.js"></script>
 </html>
