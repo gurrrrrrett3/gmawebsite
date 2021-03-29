@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GMA Map Viewer | Home</title>
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<body onload="readData($('#data'),2)">
+    <div>
+    <h1>
+        GMA Highscore Page
+    </h1>
+    <h2>
+        A work in progress, Still adding pages!
+    </h2>
+    <h3>
+       <div id="data"></div>
+    </h3>
+</div>
+
+
+
+    <footer>
+        This website is written by and maintained by Gucci Garrett. GMA is owned by <a href="https://www.toppluva.com/GrandMountainAdventure/">Toppluva AB</a>, make sure to give them love!
+    </footer>
+</body>
+
+<script src="../assets/js/jquery.3.6.0.min.js"></script>
+
+<!--Stuff for wrs-->
+<script src="./wr.js"></script>
+<script src="https://spreadsheets.google.com/feeds/cells/1tQlm697baiVfl-PqgcEurx5NQL8mVgJQB02xsswQgng/1/public/values?alt=json-in-script&callback=doData"></script>
+
+</html>
