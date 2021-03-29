@@ -73,6 +73,7 @@ const mapData = [
         "x": 26,
         "y": 37,
         "type": "gatetime",
+        "sid": "0",
         "bronze": 63.00,
         "silver": 56.00,
         "gold": 54.50,
@@ -84,6 +85,7 @@ const mapData = [
         "x": 73,
         "y": 60,
         "type": "gatetime",
+        "sid": "0",
         "bronze": 45.00,
         "silver": 42.00,
         "gold": 40.50,
@@ -95,6 +97,7 @@ const mapData = [
         "x": 80,
         "y": 90,
         "type": "gatetime",
+        "sid": "0",
         "bronze": 63.00,
         "silver": 58.00,
         "gold": 55.00,
@@ -106,6 +109,7 @@ const mapData = [
         "x": 48,
         "y": 475,
         "type": "gatetime",
+        "sid": "2",
         "bronze": 41.00,
         "silver": 36.00,
         "gold": 34.00,
@@ -113,10 +117,11 @@ const mapData = [
         "td": 0
     },
     {
-        "name": "The Woodlad Slalom",
+        "name": "The Woodland Slalom",
         "x": 14,
         "y": 600,
         "type": "gatetime",
+        "sid": "0",
         "bronze": 29.00,
         "silver": 27.00,
         "gold": 26.00,
@@ -128,6 +133,7 @@ const mapData = [
         "x": 19,
         "y": 620,
         "type": "gatetime",
+        "sid": "1",
         "bronze": 27.00,
         "silver": 25.00,
         "gold": 24.00,
@@ -139,6 +145,7 @@ const mapData = [
         "x": 57,
         "y": 660,
         "type": "gatetime",
+        "sid": "0",
         "bronze": 17.00,
         "silver": 16.00,
         "gold": 15.00,
@@ -207,4 +214,62 @@ function getStats(id) {
     document.getElementById("gold").textContent = element.gold.toPrecision(4)
     document.getElementById("silver").textContent = element.silver.toPrecision(4)
     document.getElementById("bronze").textContent = element.bronze.toPrecision(4)
+
+    //remove old lb data
+
+    const lb = document.getElementById("lb")
+    while (lb.firstChild) {
+        lb.removeChild(lb.lastChild);
+      }
+
+    //add new lb data
+
+    readData($('#lb'),element.sid)
+}
+
+//getting data from spreadsheet
+
+var spData = null;
+function doData(json) {
+    spData = json.feed.entry;
+}
+
+function drawCell(tr, val) {
+    var td = $("<td/>");
+    tr.append(td);
+    td.append(val);
+    return td;
+}
+function drawRow(table, rowData) {
+    if (rowData == null) return null;
+    if (rowData.length == 0) return null;
+    var tr = $("<tr/>");
+    table.append(tr);
+    for(var c=0; c<rowData.length; c++) {
+        drawCell(tr, rowData[c]);
+    }
+    return tr;
+}
+
+function drawTable(parent) {
+    var table = $("<table/>");
+    parent.append(table);
+    return table;
+}
+
+function readData(parent,start) {
+    var data = spData;
+    var table = drawTable(parent);
+    var rowData = [];
+    
+    for(var r=start*20; r<start*20 + 20; r++) { //seperates each chunk to access easier
+        var cell = data[r]["gs$cell"]; //gets the Rth cell
+        var val = cell["$t"]; //Gets the value of the cell
+        if (cell.col == 1) { //draws the last row if its the first cell in the row
+            drawRow(table, rowData); 
+            rowData = [];
+        }
+        rowData.push(val); //push the cell to the array 
+    }
+    drawRow(table, rowData);
 }

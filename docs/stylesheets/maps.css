@@ -8,7 +8,7 @@ footer, body {
   font-family: "Staatliches", cursive;
 }
 
-doublediamond, medals, sidebar, country {
+.lb table tr:nth-child(3), .lb table tr:nth-child(2), .lb table tr:nth-child(1), .lb, doublediamond, medals, sidebar, country {
   font-family: "Contrail One", cursive;
 }
 
@@ -75,18 +75,18 @@ waldtal-text {
   text-shadow: true;
 }
 
-medals {
+medals, .lb table tr:nth-child(1) {
   color: #8C8479;
 }
 
-doublediamond {
+doublediamond, .lb table tr:nth-child(2) {
   color: #9494a7;
 }
 
 .sidenav {
   height: 100%;
   /* Full-height: remove this if you want "auto" height */
-  width: 310px;
+  width: 230px;
   /* Set the width of the sidebar */
   position: fixed;
   /* Fixed Sidebar (stay in place on scroll) */
@@ -103,7 +103,7 @@ doublediamond {
 }
 
 .main {
-  margin-left: 320px;
+  margin-left: 240px;
   /* Same as the width of the sidebar */
   padding: 0px 10px;
   position: relative;
@@ -159,6 +159,13 @@ button:hover {
   position: absolute;
   top: 0%;
   left: 0%;
+}
+
+.lb {
+  color: palevioletred;
+}
+.lb table tr:nth-child(3) {
+  color: #9e674d;
 }
 
 /* width */
