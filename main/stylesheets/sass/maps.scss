@@ -61,10 +61,36 @@ sidebar {
     font-size: 16px;
 }
 
+name {
+    @extend %title-text;
+    font-size: 24px;
+}
+
+var {
+    font-style: normal;
+}
+
 elnakka-text {
     font-family: 'Staatliches', cursive;
     font-size: 36px;
     color: white;
+}
+
+waldtal-text {
+    font-family: 'Contrail One', cursive;
+    font-size: 36px;
+    color: white;
+    text-shadow: true;
+}
+
+medals {
+    @extend %sidebar-text;
+    color: #8C8479;
+}
+
+doublediamond {
+    @extend %sidebar-text;
+    color: #9494a7;
 }
 
 
@@ -75,7 +101,7 @@ elnakka-text {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: darkslategray; 
+    background-color:  darkslategray;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 5px;
     padding-left: 10px;
@@ -98,12 +124,12 @@ elnakka-text {
 
   .map {
       width: 100%;
-      height: 100%;
+      height: auto;
       position: relative;
 
       img{
           position: absolute;
-          width: 50%;
+          width: 100%;
           height: auto;
       }
   }
@@ -140,4 +166,21 @@ elnakka-text {
       top: 0%;
       left: 0%;
       
+  }
+
+  /* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track-piece {
+    background: rgba($color: #000000, $alpha: 0);
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba($color: darkslategray, $alpha: 0.75);
+    border-radius: 10px;
   }

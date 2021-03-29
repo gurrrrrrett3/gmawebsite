@@ -1,9 +1,9 @@
-h1, h2 {
+h2, h1 {
   color: black;
   font-family: "Lobster", cursive;
 }
 
-body, footer {
+footer, body {
   color: black;
   font-family: "Staatliches", cursive;
 }

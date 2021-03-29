@@ -1,4 +1,4 @@
-h2, h1 {
+name, h2, h1 {
   color: white;
   font-family: "Lobster", cursive;
 }
@@ -8,7 +8,7 @@ footer, body {
   font-family: "Staatliches", cursive;
 }
 
-sidebar, country {
+doublediamond, medals, sidebar, country {
   font-family: "Contrail One", cursive;
 }
 
@@ -54,10 +54,33 @@ sidebar {
   font-size: 16px;
 }
 
+name {
+  font-size: 24px;
+}
+
+var {
+  font-style: normal;
+}
+
 elnakka-text {
   font-family: "Staatliches", cursive;
   font-size: 36px;
   color: white;
+}
+
+waldtal-text {
+  font-family: "Contrail One", cursive;
+  font-size: 36px;
+  color: white;
+  text-shadow: true;
+}
+
+medals {
+  color: #8C8479;
+}
+
+doublediamond {
+  color: #9494a7;
 }
 
 .sidenav {
@@ -85,8 +108,8 @@ elnakka-text {
   padding: 0px 10px;
   position: relative;
   height: 100vh;
-  cursor: grab;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 .main img {
   position: absolute;
@@ -96,7 +119,7 @@ elnakka-text {
 
 .map {
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
 }
 .map img {
@@ -136,6 +159,23 @@ button:hover {
   position: absolute;
   top: 0%;
   left: 0%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track-piece {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(47, 79, 79, 0.75);
+  border-radius: 10px;
 }
 
 /*# sourceMappingURL=maps.css.map */

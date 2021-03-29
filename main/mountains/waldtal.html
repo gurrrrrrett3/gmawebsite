@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GMA Map Viewer | Elnakka
+    <title>GMA Map Viewer | Waldtal
     </title>
     <link rel="stylesheet" href="/stylesheets/maps.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,28 +13,42 @@
 </head>
 <body>
     <div class="sidenav">
-        <elnakka-text>ELNAKKA</elnakka-text>
+        <waldtal-text>WALDTAL</waldtal-text>
         <br>
-        <country>Finland</country>
+        <country>Germany</country>
         <br>
         <sidebar>
-            SKI PASSES: 60 <br>
-            DOUBLE DIAMONDS: 9 <br>
-            LIFTS: 4 <br>
+            SKI PASSES: 61 <br>
+            DOUBLE DIAMONDS: 12 <br>
+            LIFTS: 6
         </sidebar>
+        <br>
+        <br>
+        <name><var id="name"></var></name> <br>
+        <doublediamond><var id="td">N/A</var> Triple Diamond</doublediamond> <br>
+        <doublediamond><var id="dd">N/A</var> Double Diamond</doublediamond> <br>
+        <medals><var id="gold">N/A</var>  Gold</medals> <br>
+        <medals><var id="silver">N/A</var>  Silver</medals> <br>
+        <medals><var id="bronze">N/A</var>  Bronze</medals> <br>
 
+        <footer><a href="../home.html">Home</a></footer>
       </div>
 
       <div class="main">
         <div class="map" id="map">
-          <img src="../assets/elnakka/Elnakka/Elnakka_Background.png" class="layer">
+          <img src="../assets/Waldtal/ingame_screenshot_2057242376_2715x1464_idx002.png" class="layer">
         <!--<div class="layers">-->
-          <img src="../assets/elnakka/Elnakka/Elnakka_Races.png" id="tt" class="layer">
+          <!--
+            <img src="../assets/elnakka/Elnakka/Elnakka_Races.png" id="tt" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_TC.png" id="tc" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_Trials.png" id="tra" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_Passes_and_rings.png" id="exp" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_StG.png" id="stg" class="layer">
+          -->
         <!--</div>-->
+
+        
+        
       <div class="controls"> 
         TOGGLES
         <br>
@@ -61,5 +75,5 @@
 </body>
 
 <script src="../assets/js/jquery.3.6.0.min.js"></script>
-<script src="../assets/js/maps.js"></script>
+<script src="../assets/js/waldtal.js"></script>
 </html>
