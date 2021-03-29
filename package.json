@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "g-sheets-api": "^1.4.1",
     "sass": "^1.32.8",
     "scss": "^0.2.4"
   }
