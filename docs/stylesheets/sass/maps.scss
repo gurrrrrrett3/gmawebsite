@@ -172,19 +172,18 @@ doublediamond {
   .lb {
       @extend %sidebar-text;
       color: palevioletred;
-      table {
-          tr:nth-child(1) {
+
+          en:nth-child(1) {
               @extend %sidebar-text;
               @extend medals
           }
-          tr:nth-child(2) {
+          en:nth-child(3) {
             @extend %sidebar-text;
               @extend doublediamond
           }
-          tr:nth-child(3) {
+          en:nth-child(5) {
             @extend %sidebar-text;
               color: rgb(158, 103, 77);
-          }
       }
   }
 

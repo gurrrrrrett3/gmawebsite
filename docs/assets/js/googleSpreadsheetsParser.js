@@ -5,7 +5,7 @@ GoogleSpreadsheetsUtil = (function() {
 
   GoogleSpreadsheetsUtil.prototype.extractKey = function(publishedUrl) {
     var matched;
-    matched = publishedUrl.match(/https:\/\/docs.google.com\/spreadsheets\/d\/(.+)\/pubhtml/);
+    matched = publishedUrl.match(/https:\/\/docs.google.com\/spreadsheets\/d\/e\/(.+)\/pubhtml/);
     if (matched === null || matched.length !== 2) {
       return null;
     }
@@ -62,7 +62,7 @@ GoogleSpreadsheetsUtil = (function() {
       if (cell === null) {
         return titles;
       }
-      if (Number(cell.row) === 1) {
+      if (Number(cell.row) === 2) {
         titles.push(cell.$t);
       } else {
         return titles;
@@ -77,7 +77,7 @@ GoogleSpreadsheetsUtil = (function() {
     if (!(feedEntry.length >= 1 && feedEntry[0].gs$cell)) {
       return contents;
     }
-    columnCount = Number(feedEntry[feedEntry.length - 1].gs$cell.col);
+    columnCount = 6 //hardcoded instead of this: Number(feedEntry[feedEntry.length - 1].gs$cell.col);
     rowNumber = 0;
     for (j = 0, len = feedEntry.length; j < len; j++) {
       obj = feedEntry[j];
