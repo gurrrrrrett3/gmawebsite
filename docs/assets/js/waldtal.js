@@ -6,9 +6,7 @@ var zoomList = [
     125,
     150,
     175,
-    200,
-    300,
-    500
+    200
 ]
 var map = document.getElementById("map")
 
@@ -63,7 +61,7 @@ getetime
 gatetrick
 timetrick
 toptobottom_trial
-challenge_trial
+trial
 
 */
 
@@ -152,6 +150,66 @@ const mapData = [
         "dd": 14.60,
         "td": 0
     },
+    {
+        "name": "Waldhorn Voyage",
+        "x": 1,
+        "y": 180,
+        "type": "toptobottom_trial",
+        "sid": "0",
+        "bronze": 80.00,
+        "silver": 75.00,
+        "gold": 70.00,
+        "dd": 68.60,
+        "td": 0
+    },
+    {
+        "name": "The Fatal Drops",
+        "x": 10,
+        "y": 180,
+        "type": "trial",
+        "sid": "0",
+        "bronze": 60.00,
+        "silver": 0,
+        "gold": 0,
+        "dd": 0,
+        "td": 0
+    },
+    {
+        "name": "The Waldhorn Falls",
+        "x": 10,
+        "y": 100,
+        "type": "drop",
+        "sid": "0",
+        "bronze": 65,
+        "silver": 73,
+        "gold": 78,
+        "dd": 83,
+        "td": 0
+    },
+    {
+        "name": "The Waldhorn Falls",
+        "x": 10,
+        "y": 100,
+        "type": "drop",
+        "sid": "0",
+        "bronze": 65,
+        "silver": 73,
+        "gold": 78,
+        "dd": 83,
+        "td": 0
+    },
+    {
+        "name": "The Waldhorn Falls",
+        "x": 10,
+        "y": 100,
+        "type": "drop",
+        "sid": "0",
+        "bronze": 65,
+        "silver": 73,
+        "gold": 78,
+        "dd": 83,
+        "td": 0
+    },
 ]
 
 
@@ -165,7 +223,7 @@ mapData.forEach(element => {
     icon.src = `../assets/icons/challenge_${element.type}.png`
 
     icon.style.position = "relative"
-    icon.style.left = `${element.x}%`
+    icon.style.left = `${element.x - (16 * i)}px`
     icon.style.top = `${element.y}px`
     icon.style.width = "16px"
     icon.style.height = "16px"
@@ -224,52 +282,13 @@ function getStats(id) {
 
     //add new lb data
 
-    readData($('#lb'),element.sid)
+    const publishedUrl = "https://docs.google.com/spreadsheets/d/e/1tWVgZUx-dvO_qPsreSqxM9FydgV4eoak9Q6G0QO8TMQ/pubhtml"
+
+    var gss = new GoogleSpreadsheetsParser(publishedUrl, {sheetTitle: element.name, hasTitle: true});
 }
 
-//getting data from spreadsheet
 
-var spData = null;
-function doData(json) {
-    spData = json.feed.entry;
-}
 
-function drawCell(tr, val) {
-    var td = $("<td/>");
-    tr.append(td);
-    td.append(val);
-    return td;
-}
-function drawRow(table, rowData) {
-    if (rowData == null) return null;
-    if (rowData.length == 0) return null;
-    var tr = $("<tr/>");
-    table.append(tr);
-    for(var c=0; c<rowData.length; c++) {
-        drawCell(tr, rowData[c]);
-    }
-    return tr;
-}
 
-function drawTable(parent) {
-    var table = $("<table/>");
-    parent.append(table);
-    return table;
-}
-
-function readData(parent,start) {
-    var data = spData;
-    var table = drawTable(parent);
-    var rowData = [];
-    
-    for(var r=start*20; r<start*20 + 20; r++) { //seperates each chunk to access easier
-        var cell = data[r]["gs$cell"]; //gets the Rth cell
-        var val = cell["$t"]; //Gets the value of the cell
-        if (cell.col == 1) { //draws the last row if its the first cell in the row
-            drawRow(table, rowData); 
-            rowData = [];
-        }
-        rowData.push(val); //push the cell to the array 
-    }
-    drawRow(table, rowData);
-}
+zoomIn()
+zoomOut()
