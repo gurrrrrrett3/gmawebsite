@@ -206,7 +206,7 @@ function ZoomFunc(zoomValue) {
         const left = `${element.x * (zoomValue / 100)}`
         const top = `${element.y * (zoomValue / 100)}`
 
-        $(icons[i]).css('left', `${left}%`);
+        $(icons[i]).css('left', `${left}px`);
         $(icons[i]).css('top', `${top}px`);
         $(icons[i]).css('width', `${zoomValue / 35}%`);
         $(icons[i]).css('height', `${zoomValue / 35}%`);
@@ -254,6 +254,8 @@ function getStats(id) {
         lb.removeChild(lb.lastChild);
     }
 
+    
+
     //add new lb data
 
     const publishedUrl = "https://docs.google.com/spreadsheets/d/e/1tWVgZUx-dvO_qPsreSqxM9FydgV4eoak9Q6G0QO8TMQ/pubhtml"
@@ -262,6 +264,15 @@ function getStats(id) {
         sheetTitle: element.name
     });
     const data = gss.contents
+
+    if(data == undefined) {
+        toastr.error("Failed to load the leaderboards", "Error", {
+            progressBar: false,
+            timeOut: 10 
+        })
+        return
+    }
+
 
     var top10 = []
     for (var i = 1; i < 11; i++) { //skip the first row, as it is the header
@@ -283,13 +294,31 @@ function getStats(id) {
 
 
     top10.forEach(element => {
-        var en = document.createElement("en")
-        en.textContent = `${element.score}${unit} ${element.name} `
+        var en = document.createElement("tr")
+        var x = en.insertCell()
+        x.innerHTML = `${element.score}${unit}`
+        x = en.insertCell()
+        x.innerHTML =`${element.name}`
         parent.appendChild(en)
-        const br = document.createElement("br")
-        parent.appendChild(br)
     });
+
+    return top10
 }
+
+
+//preload data test
+
+var load = 0;
+
+function forceLoad() {
+for(i=0; i < mapData.length - 1; i ++) {
+    getStats(i)
+    console.log(i)
+
+}
+
+}
+
 
 
 

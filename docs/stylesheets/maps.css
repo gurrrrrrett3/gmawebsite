@@ -8,7 +8,7 @@ footer, body {
   font-family: "Staatliches", cursive;
 }
 
-.lb en:nth-child(5), .lb en:nth-child(3), .lb en:nth-child(1), .lb, doublediamond, medals, sidebar, country {
+.lb table tr:nth-child(3), .lb table tr:nth-child(2), .lb table tr:nth-child(1), .lb, doublediamond, medals, sidebar, country {
   font-family: "Contrail One", cursive;
 }
 
@@ -75,11 +75,11 @@ waldtal-text {
   text-shadow: true;
 }
 
-medals, .lb en:nth-child(1) {
+medals, .lb table tr:nth-child(1) {
   color: #8C8479;
 }
 
-doublediamond, .lb en:nth-child(3) {
+doublediamond, .lb table tr:nth-child(2) {
   color: #9494a7;
 }
 
@@ -164,7 +164,7 @@ button:hover {
 .lb {
   color: palevioletred;
 }
-.lb en:nth-child(5) {
+.lb table tr:nth-child(3) {
   color: #9e674d;
 }
 

@@ -5,13 +5,14 @@
     <title>GMA Map Viewer | Waldtal
     </title>
     <link rel="stylesheet" href="../stylesheets/maps.css">
+    <link rel="stylesheet" href="../stylesheets/toastr.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body onload="forceLoad()">
     <div class="sidenav">
         <waldtal-text>WALDTAL</waldtal-text>
         <br>
@@ -35,7 +36,11 @@
 
         <name>Leaderboard</name> <br>
 
-        <div id="lb" class="lb"></div>
+        <div class="lb">
+          <table id="lb">
+
+          </table>
+        </div>
         <footer><a href="../index.html">Home</a></footer>
       </div>
 
@@ -76,10 +81,12 @@
         <br>
         Zoom Level <var id="zoom">100%</var>
       </div> 
+      
       </div>
 </body>
 
 <script src="../assets/js/jquery.3.6.0.min.js"></script>
-<script src="../assets/js/waldtal.js"></script>
+<script src="../assets/js/toastr.js"></script>
 <script type="text/javascript" src="../assets/js/googleSpreadsheetsParser.js"></script>
+<script src="../assets/js/waldtal.js"></script>
 </html>

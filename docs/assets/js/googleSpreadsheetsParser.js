@@ -101,15 +101,41 @@ GoogleSpreadsheetsUtil = (function() {
 
 })();
 
-GoogleSpreadsheetsParser = (function() {
+GoogleSpreadsheetsParser = (function() { //Rewriting this to use Cache
   function GoogleSpreadsheetsParser(publishedUrl, option) {
     var _util, feedEntry, feeds, hasTitle, key, mtd, sheetTitle;
     sheetTitle = option.sheetTitle || null;
     hasTitle = option.hasTitle || true;
     _util = new GoogleSpreadsheetsUtil();
-    key = _util.extractKey(publishedUrl);
-    mtd = _util.getWorksheetId(key, sheetTitle);
-    feeds = _util.getFeeds(key, mtd);
+
+    //Check if the key is in storage
+
+    if (localStorage.getItem('key') == undefined){
+      key = _util.extractKey(publishedUrl);
+      localStorage.setItem('key', key)
+    } else {
+      key = localStorage.getItem('key')
+    }
+
+    //Check if the trial data is in storage
+    
+    if(localStorage.getItem(sheetTitle) == undefined) {
+      mtd = _util.getWorksheetId(key, sheetTitle);
+      localStorage.setItem(sheetTitle, mtd)
+    } else {
+      mtd = localStorage.getItem(sheetTitle)
+    }
+
+    if(localStorage.getItem(mtd) == undefined) {
+      feeds = _util.getFeeds(key, mtd);
+      localStorage.setItem(mtd, JSON.stringify(feeds))
+
+      //store the time value to be checked later, to provide time since update
+
+      localStorage.setItem("lastUpdate", Date.now())
+    } else {
+      feeds = JSON.parse(localStorage.getItem(mtd))
+    }
     feedEntry = feeds.feed.entry;
     if (hasTitle) {
       this.titles = _util.makeTitle(feedEntry);
