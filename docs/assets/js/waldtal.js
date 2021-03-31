@@ -254,7 +254,7 @@ function getStats(id) {
         lb.removeChild(lb.lastChild);
     }
 
-    
+
 
     //add new lb data
 
@@ -265,10 +265,10 @@ function getStats(id) {
     });
     const data = gss.contents
 
-    if(data == undefined) {
+    if (data == undefined) {
         toastr.error("Failed to load the leaderboards", "Error", {
             progressBar: false,
-            timeOut: 10 
+            timeOut: 10
         })
         return
     }
@@ -298,7 +298,7 @@ function getStats(id) {
         var x = en.insertCell()
         x.innerHTML = `${element.score}${unit}`
         x = en.insertCell()
-        x.innerHTML =`${element.name}`
+        x.innerHTML = `${element.name}`
         parent.appendChild(en)
     });
 
@@ -311,32 +311,32 @@ function getStats(id) {
 var load = 0;
 
 function forceLoad() {
-for(i=0; i < mapData.length - 1; i ++) {
-    getStats(i)
-    console.log(i)
+    for (i = 0; i < mapData.length - 1; i++) {
+        getStats(i)
+        console.log(i)
 
-}
+    }
 
 }
 
 function refresh() {
     localStorage.clear()
     forceLoad()
-document.getElementById("refresh").textContent = `Updated just now`
+    document.getElementById("refresh").textContent = `Updated just now`
 }
 const ms = Date.now() - localStorage.getItem("lastUpdate")
 console.log(ms)
 var h = Math.floor(ms / 3600000)
-    var m = Math.floor((ms % 3600000) / 60000)
-    var s = Math.floor(((ms % 3600000) % 60000) / 1000)
+var m = Math.floor((ms % 3600000) / 60000)
+var s = Math.floor(((ms % 3600000) % 60000) / 1000)
 
-    if(m.length == 1) {
-        m = "0" + m 
-    }
+if (m.toString().length == 1) {
+    m = "0" + m.toString()
+}
 
-    if(s.length == 1) {
-        s = "0" + s 
-    }
+if (s.toString().length == 1) {
+    s = "0" + s.toString()
+}
 document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
 
 zoomIn()
