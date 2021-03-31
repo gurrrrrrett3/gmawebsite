@@ -1,10 +1,14 @@
 var mapd = document.getElementById("map")
 var background = document.getElementById("background")
 
-mapd.style.width = background.clientWidth
-mapd.style.height = background.clientHeight
+var background = document.getElementById("background")
+background.addEventListener('load', function(e){
+    var mapd = document.getElementById("map")
+    mapd.style.width = background.clientWidth
+    mapd.style.height = background.clientHeight
 
-var ratio = background.clientHeight / background.clientWidth
+    var ratio = background.clientHeight / background.clientWidth
+});
 
 
 var zoom = 100
@@ -26,7 +30,7 @@ function zoomIn() {
     var layers = $(map).find('img.layer');
     for (i = 0; i < layers.length; i++) {
         $(layers[i]).css('width', `${zoom}%`); 
-        $(layers[i]).css('height', `auto`);
+       // $(layers[i]).css('height', `auto`);
     }
     document.getElementById("zoom").textContent = zoom + "%"
     ZoomFunc(zoom)
@@ -39,7 +43,7 @@ function zoomOut() {
     var layers = $(map).find('img.layer');
     for (i = 0; i < layers.length; i++) {
         $(layers[i]).css('width', `${zoom}%`);
-        $(layers[i]).css('height', `auto`);
+       // $(layers[i]).css('height', `auto`);
     }
     document.getElementById("zoom").textContent = zoom + "%"
     ZoomFunc(zoom)
