@@ -322,22 +322,7 @@ for(i=0; i < mapData.length - 1; i ++) {
 function refresh() {
     localStorage.clear()
     forceLoad()
-    const ms = Date.now() - localStorage.getItem("lastUpdate")
-    console.log(ms)
-    var h = Math.floor(ms / 3600000)
-    var m = Math.floor((ms % 3600000) / 60000)
-    var s = Math.floor(((ms % 3600000) % 60000) / 1000)
-
-    if(m.length == 1) {
-        m = "0" + m 
-    }
-
-    if(s.length == 1) {
-        s = "0" + s 
-    }
-
-document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
-    document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
+document.getElementById("refresh").textContent = `Updated just now`
 }
 const ms = Date.now() - localStorage.getItem("lastUpdate")
 console.log(ms)
