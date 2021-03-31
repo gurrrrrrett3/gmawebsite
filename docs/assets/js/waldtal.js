@@ -319,9 +319,25 @@ for(i=0; i < mapData.length - 1; i ++) {
 
 }
 
+function refresh() {
+    localStorage.clear()
+    forceLoad()
+    const ms = Date.now() - localStorage.getItem("lastUpdate")
+    console.log(ms)
+    const h = Math.floor(ms / 3600000)
+    const m = Math.floor((ms % 3600000) / 60000).toPrecision(2)
+    const s = Math.floor(((ms % 3600000) % 60000) / 1000).toPrecision(2)
 
+document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
+    document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
+}
+const ms = Date.now() - localStorage.getItem("lastUpdate")
+console.log(ms)
+const h = Math.floor(ms / 3600000)
+const m = Math.floor((ms % 3600000) / 60000)
+const s = Math.floor(((ms % 3600000) % 60000) / 1000)
 
-
+document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
 
 zoomIn()
 zoomOut()
