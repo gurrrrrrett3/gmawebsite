@@ -324,19 +324,34 @@ function refresh() {
     forceLoad()
     const ms = Date.now() - localStorage.getItem("lastUpdate")
     console.log(ms)
-    const h = Math.floor(ms / 3600000)
-    const m = Math.floor((ms % 3600000) / 60000).toPrecision(2)
-    const s = Math.floor(((ms % 3600000) % 60000) / 1000).toPrecision(2)
+    var h = Math.floor(ms / 3600000)
+    var m = Math.floor((ms % 3600000) / 60000)
+    var s = Math.floor(((ms % 3600000) % 60000) / 1000)
+
+    if(m.length == 1) {
+        m = "0" + m 
+    }
+
+    if(s.length == 1) {
+        s = "0" + s 
+    }
 
 document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
     document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
 }
 const ms = Date.now() - localStorage.getItem("lastUpdate")
 console.log(ms)
-const h = Math.floor(ms / 3600000)
-const m = Math.floor((ms % 3600000) / 60000)
-const s = Math.floor(((ms % 3600000) % 60000) / 1000)
+var h = Math.floor(ms / 3600000)
+    var m = Math.floor((ms % 3600000) / 60000)
+    var s = Math.floor(((ms % 3600000) % 60000) / 1000)
 
+    if(m.length == 1) {
+        m = "0" + m 
+    }
+
+    if(s.length == 1) {
+        s = "0" + s 
+    }
 document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
 
 zoomIn()
