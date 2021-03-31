@@ -36,6 +36,7 @@ footer {
 }
 
 
+
 a:link {
     color: royalblue;
 }
@@ -46,6 +47,11 @@ a:visited {
 
 a:hover {
     color: palevioletred;
+}
+
+a.hiddenlink{
+    color: darkslategray;
+    text-decoration: none;
 }
 
 country {
@@ -94,6 +100,7 @@ doublediamond {
 }
 
 
+
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 230px; /* Set the width of the sidebar */
@@ -115,16 +122,12 @@ doublediamond {
     overflow-x: auto;
     overflow-y: auto;
 
-    img{
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
+    
   }
 
   .map {
       width: 100%;
-      height: auto;
+      height: 100%;
       position: relative;
 
       img{
@@ -132,6 +135,11 @@ doublediamond {
           width: 100%;
           height: auto;
       }
+  }
+
+  .icons{
+      width: 100%;
+      height: 100%;
   }
 
   .controls {

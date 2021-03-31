@@ -1,4 +1,13 @@
-var zoom = 50
+var mapd = document.getElementById("map")
+var background = document.getElementById("background")
+
+mapd.style.width = background.clientWidth
+mapd.style.height = background.clientHeight
+
+var ratio = background.clientHeight / background.clientWidth
+
+
+var zoom = 100
 var zoomItem = 0
 var zoomList = [
     100,
@@ -16,8 +25,8 @@ function zoomIn() {
     zoom = zoomList[zoomItem]
     var layers = $(map).find('img.layer');
     for (i = 0; i < layers.length; i++) {
-        $(layers[i]).css('width', `${zoom}%`);
-        //$(layers[i]).css('height', 'auto');
+        $(layers[i]).css('width', `${zoom}%`); 
+        $(layers[i]).css('height', `auto`);
     }
     document.getElementById("zoom").textContent = zoom + "%"
     ZoomFunc(zoom)
@@ -30,7 +39,7 @@ function zoomOut() {
     var layers = $(map).find('img.layer');
     for (i = 0; i < layers.length; i++) {
         $(layers[i]).css('width', `${zoom}%`);
-        //$(layers[i]).css('height', 'auto');
+        $(layers[i]).css('height', `auto`);
     }
     document.getElementById("zoom").textContent = zoom + "%"
     ZoomFunc(zoom)
@@ -48,6 +57,8 @@ function toggleVis(id) {
         x.style.display = "none"
     }
 }
+
+
 
 
 
@@ -167,7 +178,6 @@ const mapData = [{
     "td": 0
 }, ]
 
-
 //icon gen
 
 
@@ -177,9 +187,9 @@ mapData.forEach(element => {
 
     icon.src = `../assets/icons/challenge_${element.type}.png`
 
-    icon.style.position = "relative"
-    icon.style.left = `${element.x - (16 * i)}px`
-    icon.style.top = `${element.y}px`
+    icon.style.position = "absoulute"
+    icon.style.left = `${element.x}%`
+    icon.style.top = `${element.y}%`
     icon.style.width = "16px"
     icon.style.height = "16px"
     icon.className = "icon"
@@ -203,15 +213,22 @@ function ZoomFunc(zoomValue) {
     var i = 0
     var icons = $(map).find('img.icon');
     mapData.forEach(element => {
-        const left = `${element.x * (zoomValue / 100)}`
-        const top = `${element.y * (zoomValue / 100)}`
 
-        $(icons[i]).css('left', `${left}px`);
-        $(icons[i]).css('top', `${top}px`);
-        $(icons[i]).css('width', `${zoomValue / 35}%`);
-        $(icons[i]).css('height', `${zoomValue / 35}%`);
+        const left = element.x * (zoomValue / 100)
+        const top = element.y * (zoomValue / 100)
+
+        $(icons[i]).css('left', `${left}%`);
+        $(icons[i]).css('top', `${top}%`);
+        $(icons[i]).css('width', `${zoomValue / 5}px`);
+        $(icons[i]).css('height', `${zoomValue / 5}px`);
         i++
     });
+
+    mapd = document.getElementById("map")
+    background = document.getElementById("background")
+
+mapd.style.width = background.clientWidth
+mapd.style.height = background.clientHeight
 }
 
 /**
@@ -338,6 +355,11 @@ if (s.toString().length == 1) {
     s = "0" + s.toString()
 }
 document.getElementById("refresh").textContent = `Scores Updated ${h}:${m}:${s} ago`
+ 
 
-zoomIn()
-zoomOut()
+
+
+
+
+//zoomIn()
+//zoomOut()
