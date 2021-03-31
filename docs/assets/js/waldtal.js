@@ -11,9 +11,12 @@ background.addEventListener('load', function(e){
 });
 
 
-var zoom = 100
+var zoom = 90
 var zoomItem = 0
 var zoomList = [
+    50,
+    75,
+    90,
     100,
     110,
     125,
@@ -83,7 +86,7 @@ trial
 const mapData = [{
     "name": "Peak To Valley Run",
     "x": 26,
-    "y": 37,
+    "y": 8,
     "type": "gatetime",
     "bronze": 63.00,
     "silver": 56.00,
@@ -172,8 +175,8 @@ const mapData = [{
     "td": 0
 }, {
     "name": "The Waldhorn Falls",
-    "x": 10,
-    "y": 100,
+    "x": 22,
+    "y": 16,
     "type": "drop",
     "bronze": 65,
     "silver": 73,
@@ -361,7 +364,12 @@ if (s.toString().length == 1) {
 document.getElementById("refresh").textContent = `Scores Updated ${h}:${m}:${s} ago`
  
 
-
+function showCoords(event) {
+    var x = Math.round(((event.clientX - 240) / background.clientWidth) * 100);
+    var y = Math.round(((event.clientY + scrollY) / background.clientHeight) * 100);
+    var coords = x + ", " + y;
+    document.getElementById("coords").innerHTML = coords;
+  }
 
 
 
