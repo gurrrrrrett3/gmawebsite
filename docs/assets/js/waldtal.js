@@ -322,7 +322,7 @@ function forceLoad() {
 function refresh() {
     localStorage.clear()
     forceLoad()
-    document.getElementById("refresh").textContent = `Updated just now`
+    document.getElementById("refresh").textContent = `Scores updated just now`
 }
 const ms = Date.now() - localStorage.getItem("lastUpdate")
 console.log(ms)
@@ -337,7 +337,7 @@ if (m.toString().length == 1) {
 if (s.toString().length == 1) {
     s = "0" + s.toString()
 }
-document.getElementById("refresh").textContent = `Updated ${h}:${m}:${s} ago`
+document.getElementById("refresh").textContent = `Scores Updated ${h}:${m}:${s} ago`
 
 zoomIn()
 zoomOut()

@@ -150,6 +150,11 @@ button {
   font-family: "Staatliches", cursive;
 }
 
+.inverse {
+  background-color: white;
+  color: darkslategray;
+}
+
 button:hover {
   color: palevioletred;
 }
