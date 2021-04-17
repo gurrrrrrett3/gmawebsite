@@ -68,4 +68,114 @@ a:hover {
   overflow-y: auto;
 }
 
+/* Style the header */
+.header {
+  padding: 0px 16px;
+  color: #f1f1f1;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100%;
+}
+
+/* Page content */
+.content {
+  padding: 5px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.sub {
+  background-color: dodgerblue;
+  font-family: "Staatliches", cursive;
+  color: white;
+  font-size: 24px;
+  width: auto;
+  right: 16px;
+  top: 16px;
+  outline: none;
+  border: none;
+}
+
+.sub:hover {
+  color: palevioletred;
+}
+
+.search {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Staatliches", cursive;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  color: #000;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
 /*# sourceMappingURL=main.css.map */
