@@ -10,7 +10,7 @@ footer, body {
 
 body {
   font-size: 16px;
-  background-image: url(../assets/background_img.png);
+  background-image: url(/assets/background_img.png);
 }
 
 h1 {
