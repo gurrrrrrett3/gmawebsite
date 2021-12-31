@@ -7,7 +7,7 @@ var path = require('path')
 app.use(express.static(path.join(__dirname, 'docs')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + "/docs/index.html"))
+    res.sendFile(path.join(__dirname + "/docs/home.html"))
 })
 
 app.listen(port, () => {
