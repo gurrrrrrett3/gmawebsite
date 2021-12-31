@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>GMA Map Viewer | Waldtal
@@ -12,16 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DL9JM696D2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DL9JM696D2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-DL9JM696D2');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DL9JM696D2');
+    </script>
 
 </head>
+
 <body onload="forceLoad()">
     <div class="sidenav">
         <waldtal-text>WALDTAL</waldtal-text>
@@ -29,80 +34,78 @@
         <country>Germany</country>
         <br>
         <sidebar>
-            SKI PASSES: 61 <br>
-            DOUBLE DIAMONDS: 12 <br>
-            LIFTS: 6
+            SKI PASSES: 61 <br> DOUBLE DIAMONDS: 12 <br> LIFTS: 6
         </sidebar>
         <br>
         <br>
         <name><var id="name"></var></name> <br>
         <doublediamond><var id="td">N/A</var> Triple Diamond</doublediamond> <br>
         <doublediamond><var id="dd">N/A</var> Double Diamond</doublediamond> <br>
-        <medals><var id="gold">N/A</var>  Gold</medals> <br>
-        <medals><var id="silver">N/A</var>  Silver</medals> <br>
-        <medals><var id="bronze">N/A</var>  Bronze</medals> <br>
+        <medals><var id="gold">N/A</var> Gold</medals> <br>
+        <medals><var id="silver">N/A</var> Silver</medals> <br>
+        <medals><var id="bronze">N/A</var> Bronze</medals> <br>
 
         <br>
 
         <name>Leaderboard</name> <br>
 
         <div class="lb">
-          <table id="lb">
+            <table id="lb">
 
-          </table>
+            </table>
         </div>
-        <footer><var id="refresh"></var><br><button onclick="refresh()" class="inverse">Update</button> 
-        <button class="inverse">Home</button>
+        <footer><var id="refresh"></var><br><button onclick="refresh()" class="inverse">Update</button>
+            <button class="inverse">Home</button>
         </footer>
-      </div>
+    </div>
 
-      <div class="main">
+    <div class="main">
         <div class="map" id="map">
-          <img src="../../assets/Waldtal/ingame_screenshot_2057242376_2715x1464_idx002.png" class="layer" id="background" onclick="showCoords(event)">
-        <!--<div class="layers">-->
-          <!--
+            <img src="../assets/Waldtal/ingame_screenshot_2057242376_2715x1464_idx002.png" class="layer" id="background" onclick="showCoords(event)">
+            <!--<div class="layers">-->
+            <!--
             <img src="../assets/elnakka/Elnakka/Elnakka_Races.png" id="tt" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_TC.png" id="tc" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_Trials.png" id="tra" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_Passes_and_rings.png" id="exp" class="layer">
           <img src="../assets/elnakka/Elnakka/Elnakka_StG.png" id="stg" class="layer">
           -->
-        <!--</div>-->
-        <div class="icons" id="icons">
-          
-        </div>
+            <!--</div>-->
+            <div class="icons" id="icons">
 
-        
-        
-      <div class="controls"> 
-        TOGGLES
-        <br>
-        <button onclick="toggleVis('exp')">Exploration Passes</button>
-        <br>
-        <button onclick="toggleVis('tt')">Time Trials</button>
-        <br>
-        <button onclick="toggleVis('stg')">Ski to Goal Endings</button>
-        <br>
-        <button onclick="toggleVis('tc')">Trick Challenges</button>
-        <br>
-        <button onclick="toggleVis('tra')">Trails</button>
-        <br>
-        <button onclick="toggleVis('lvl')">Unlock Levels</button>
-        <br>
-        <br>
-        <button onclick="zoomIn()">Zoom In</button>
-        <br>
-        <button onclick="zoomOut()">Zoom Out</button>
-        <br>
-        Zoom Level <var id="zoom">100%</var><br>
-        <var id="coords"></var>
-      </div> 
-      
-      </div>
+            </div>
+
+
+
+            <div class="controls">
+                TOGGLES
+                <br>
+                <button onclick="toggleVis('exp')">Exploration Passes</button>
+                <br>
+                <button onclick="toggleVis('tt')">Time Trials</button>
+                <br>
+                <button onclick="toggleVis('stg')">Ski to Goal Endings</button>
+                <br>
+                <button onclick="toggleVis('tc')">Trick Challenges</button>
+                <br>
+                <button onclick="toggleVis('tra')">Trails</button>
+                <br>
+                <button onclick="toggleVis('lvl')">Unlock Levels</button>
+                <br>
+                <br>
+                <button onclick="zoomIn()">Zoom In</button>
+                <br>
+                <button onclick="zoomOut()">Zoom Out</button>
+                <br> Zoom Level <var id="zoom">100%</var><br>
+                <var id="coords"></var>
+            </div>
+
+        </div>
 </body>
 
-<script src="../../assets/js/jquery.3.6.0.min.js"></script>
-<script src="../../assets/js/toastr.js"></script>
-<script src="../../assets/js/googleSpreadsheetsParser.js"></script>
-<script src="../../assets/js/waldtal.js"></script>
+<script src="../assets/js/jquery.3.6.0.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/googleSpreadsheetsParser.js"></script>
+<script src="../assets/js/waldtal.js"></script>
+
 </html>
