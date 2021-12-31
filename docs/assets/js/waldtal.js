@@ -192,7 +192,7 @@ var i = 0
 mapData.forEach(element => {
     var icon = document.createElement("img")
 
-    icon.src = `../assets/icons/challenge_${element.type}.png`
+    icon.src = `../../assets/icons/challenge_${element.type}.png`
 
     icon.style.position = "absoulute"
     icon.style.left = `${element.x}%`
